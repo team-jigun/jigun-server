@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
+    if(!req.query.success) req.query.success = false
+    if(!req.query.failed) req.query.failed = false
     res.render('index', {success: req.query.success, failed: req.query.failed})
 });
 
