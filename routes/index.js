@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('index')
+    res.render('index', {success: req.query.success, failed: req.query.failed})
 });
 
 router.post('/', (req, res) => {
@@ -14,16 +14,16 @@ router.post('/', (req, res) => {
     const io = req.app.get('io')
     
     const sockets = io.of('/').sockets
+    let isFound = false;
     sockets.forEach((socket, key, map) => {
         if(socket.key === target) {
-            socket.emit('jigun', sender, message, (message) => {
-                console.log(message)
+            isFound = true;
+            socket.emit('jigun', sender, message, () => {
+                return res.redirect('/?success=true')   
             }); 
         }
-    });
-    console.log('no user found')
-
-    res.redirect('/');
+    })
+    if(!isFound) return res.redirect('/?failed=true')
 });
 
 module.exports = router;

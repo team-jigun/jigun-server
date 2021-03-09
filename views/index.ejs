@@ -10,7 +10,17 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container mt-4">
+        <% if(success) { %>
+            <div class="alert alert-success" role="alert">
+                전송 완료되었습니다.
+            </div>    
+        <% } %>
+        <% if(failed) { %>
+            <div class="alert alert-danger" role="alert">
+                전송에 실패했습니다. 수신자 키를 확인해주세요.
+            </div>    
+        <% } %>
         <form action="/" method="POST">
             <div class="mb-3">
                 <label for="senderInput" class="form-label">전송자 이름</label>
