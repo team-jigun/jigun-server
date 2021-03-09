@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>지건택배</title>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/" method="POST">
+            <div class="mb-3">
+                <label for="senderInput" class="form-label">전송자 이름</label>
+                <input type="text" class="form-control" id="senderInput" name="sender" placeholder="전송자 이름">
+            </div>
+            <div class="mb-3">
+                <label for="messageInputArea" class="form-label">메시지</label>
+                <textarea class="form-control" id="messageInputArea" name="message" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="keyInput" class="form-label">수신자 키</label>
+                <input type="text" class="form-control" id="keyInput" name="key" placeholder="수신자 키">
+            </div>
+            <button class="btn btn-primary" type="submit">전송</button>
+        </form>
+    </div>
+</body>
+
+</html>
